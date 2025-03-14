@@ -1,0 +1,33 @@
+
+services:
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+  web-tests:
+    image: vidly-web
+    volumes:
+      - ./frontend:/app
+    command: npm test
+  api:
+    build: ./backend
+    ports:
+      - 3001:3001
+    volumes:
+      - ./backend:/app
+    command: ./docker-entrypoint.sh
+    environment:
+      DB_URL: mongodb://db/vidly
+  db:
+    image: mongo:6.0
+    ports: 
+      - 27017:27017
+    volumes:
+      - vidly:/data/db
+
+volumes:
+  vidly:
+
+
