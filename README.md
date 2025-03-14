@@ -1,6 +1,6 @@
 # Docker Compose Project
 
-## Deploy to Production
+## Deploy a Three-Tier Application Architecture with AWS Using Docker Machine
 
 ### Prerequisites
 - Ensure Docker and Docker Machine are installed.
